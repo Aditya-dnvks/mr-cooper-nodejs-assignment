@@ -64,8 +64,8 @@ const Login = () => {
         className="flex flex-col border-2 shadow-lg rounded-lg p-6 w-1/3"
         onSubmit={handleSubmit}
       >
-        <h1 className="font-semibold text-2xl">Welcome to Enormous IT</h1>
-        <p>Please login to avail our Invoice Management system</p>
+        <h1 className="font-semibold text-2xl">Welcome to My Apartment</h1>
+        <p>Please login to avail our Services</p>
         <label htmlFor="email" className="mt-3">
           <strong>Email</strong>
         </label>

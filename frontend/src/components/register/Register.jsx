@@ -5,6 +5,7 @@ import { enqueueSnackbar } from "notistack";
 function Register() {
   const [formData, setFormData] = useState({
     fullName: "",
+    flat: "",
     email: "",
     password: "",
     confirm: "",
@@ -24,6 +25,7 @@ function Register() {
 
     if (
       formData.email === "" ||
+      formData.flat === "" ||
       formData.password === "" ||
       formData.fullName === "" ||
       formData.confirm === ""
@@ -50,6 +52,7 @@ function Register() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.fullName,
+          flat: formData.flat,
           email: formData.email,
           password: formData.password,
         }),
@@ -92,6 +95,18 @@ function Register() {
           value={formData.fullName}
           onChange={handleChange}
           className="border rounded p-1"
+        />
+
+        <label htmlFor="flat" className="mt-3">
+          <strong>Flat No</strong>
+        </label>
+        <input
+          type="text"
+          id="flat"
+          name="flat"
+          className="border rounded p-1"
+          value={formData.flat}
+          onChange={handleChange}
         />
 
         <label htmlFor="email" className="mt-3">

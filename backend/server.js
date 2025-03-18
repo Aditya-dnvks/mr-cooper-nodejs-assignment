@@ -6,21 +6,14 @@ app.use(express.json());
 app.use(express.urlencoded());
 require("dotenv").config();
 
-const db = require("./dbConfig/dbconfig");
-
-db.connect((err) => {
-  if (err) {
-    console.error("MySQL Connection Failed:", err);
-    return;
-  }
-  console.log("Connected to MySQL Database!");
-});
+const mongoDBConnection = require("./dbConfig/dbconfig");
+const url = process.env.DB_CONNECTION_URL;
+mongoDBConnection(url); // MongoDB connection
 
 const authRoutes = require("./routes/authRoutes");
-const invoiceRoutes = require("./routes/invoiceRoutes");
-
+const visitorRoutes = require("./routes/visitorRoutes");
 app.use("/auth", authRoutes);
-app.use("/invoices", invoiceRoutes);
+app.use("/visitors", visitorRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () =>
